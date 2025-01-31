@@ -2,8 +2,22 @@
   "users": [
     {
       "id": 1,
-      "username": "testuser",
-      "password": "password123",
+      "username": "George1",
+      "password": "George123",
+      "name": "George",
+      "surname": "SKrimpas",
+      "registrationDate": "2025-01-25",
+      "isActive": false,
+      "token": "mock-jwt-token"
+    },
+    {
+      "id": 2,
+      "username": "Irinella1",
+      "password": "Irinella123",
+      "name": "Irinella",
+      "surname": "Boutsika",
+      "registrationDate": "2025-01-26",
+      "isActive": false,
       "token": "mock-jwt-token"
     }
   ]
