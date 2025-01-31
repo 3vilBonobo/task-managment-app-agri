@@ -1,14 +1,26 @@
 import { Route } from '@angular/router';
-import { LoginComponent } from './components/login/login.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 export const routes: Route[] = [
   {
-    path: '',
-    component: LoginComponent,
+    path: 'login',
+    loadComponent: () =>
+      import('./components/login/login.component').then(
+        (m) => m.LoginComponent
+      ),
   },
   {
     path: 'dashboard',
-    component: DashboardComponent,
+    loadComponent: () =>
+      import('./components/dashboard/dashboard.component').then(
+        (m) => m.DashboardComponent
+      ),
   },
+  {
+    path: 'users',
+    loadComponent: () =>
+      import('./components/users/users.component').then(
+        (m) => m.UsersComponent
+      ),
+  },
+  { path: '**', redirectTo: '/login' }, //Create a 404 page in the future??
 ];
