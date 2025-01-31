@@ -1,5 +1,6 @@
 import { Route } from '@angular/router';
 
+//Routes using lazy-loading functionality with import()
 export const routes: Route[] = [
   {
     path: 'login',
