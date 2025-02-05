@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, inject, signal, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserModalComponent } from '../../shared/components/user-modal/user-modal.component';
+import { UserInterface } from '../../core/interfaces/user.interface';
 
 @Component({
   selector: 'app-users',
@@ -12,20 +13,20 @@ import { UserModalComponent } from '../../shared/components/user-modal/user-moda
 export class UsersComponent {
   private http = inject(HttpClient);
 
-  users = signal<any[]>([]); // Stores users
-  selectedUser = signal<any | null>(null); // Tracks selected user
+  users = signal<UserInterface[]>([]); // Stores users
+  selectedUser = signal<UserInterface | null>(null); // Tracks selected user
 
   // Reference the modal component
   @ViewChild(UserModalComponent) userModal!: UserModalComponent;
 
   constructor() {
-    this.http.get<any[]>('http://localhost:3000/users').subscribe({
+    this.http.get<UserInterface[]>('http://localhost:3000/users').subscribe({
       next: (data) => this.users.set(data),
       error: (err) => console.error('Error fetching users:', err),
     });
   }
 
-  openModal(user: any) {
+  openModal(user: UserInterface) {
     this.selectedUser.set(user);
     if (this.userModal) {
       this.userModal.setUser(user);
