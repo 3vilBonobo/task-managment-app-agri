@@ -1,6 +1,6 @@
 <div class="flex flex-col min-h-screen bg-[#e3f2fd]">
     <header class="flex items-center justify-between w-full p-4 bg-[#bbdefb] shadow-md">
-        <a routerLink="/users"
+        <a routerLink="dashboard/users"
             class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg shadow cursor-pointer">Manage
             Users</a>
         <h1 class="text-2xl font-bold text-gray-800 flex-1 text-center">Dashboard</h1>
@@ -10,6 +10,6 @@
         </button>
     </header>
 
-    <!-- Main Content (To be filled later) -->
+    <router-outlet></router-outlet>
 
 </div>

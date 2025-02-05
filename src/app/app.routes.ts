@@ -4,6 +4,7 @@ import { Route } from '@angular/router';
 export const routes: Route[] = [
   {
     path: 'login',
+    title: 'Login',
     loadComponent: () =>
       import('../app/features/login/login.component').then(
         (m) => m.LoginComponent
@@ -11,17 +12,22 @@ export const routes: Route[] = [
   },
   {
     path: 'dashboard',
+    title: 'Dashboard',
     loadComponent: () =>
       import('../app/features/dashboard/dashboard.component').then(
         (m) => m.DashboardComponent
       ),
+    children: [
+      {
+        path: 'dashboard/users',
+        title: 'Users',
+        loadComponent: () =>
+          import('../app/features/users/users.component').then(
+            (m) => m.UsersComponent
+          ),
+      },
+    ],
   },
-  {
-    path: 'users',
-    loadComponent: () =>
-      import('../app/features/users/users.component').then(
-        (m) => m.UsersComponent
-      ),
-  },
+
   { path: '**', redirectTo: '/login' }, //Create a 404 page in the future??
 ];
