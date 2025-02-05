@@ -5,7 +5,6 @@ import { UserModalComponent } from '../../shared/components/user-modal/user-moda
 
 @Component({
   selector: 'app-users',
-  standalone: true,
   imports: [CommonModule, UserModalComponent],
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css'],
@@ -16,7 +15,7 @@ export class UsersComponent {
   users = signal<any[]>([]); // Stores users
   selectedUser = signal<any | null>(null); // Tracks selected user
 
-  // We reference the modal component
+  // Reference the modal component
   @ViewChild(UserModalComponent) userModal!: UserModalComponent;
 
   constructor() {
@@ -26,15 +25,13 @@ export class UsersComponent {
     });
   }
 
-  // Function to open the modal and set the selected user
   openModal(user: any) {
     this.selectedUser.set(user);
     if (this.userModal) {
-      this.userModal.setUser(user); // Set the user in the modal using the function
+      this.userModal.setUser(user);
     }
   }
 
-  // Function to close the modal (from the modal's event)
   closeModal() {
     this.selectedUser.set(null);
   }

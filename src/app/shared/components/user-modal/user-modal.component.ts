@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-user-modal',
-  standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './user-modal.component.html',
   styleUrls: ['./user-modal.component.css'],
@@ -13,20 +12,16 @@ import { FormsModule } from '@angular/forms';
 export class UserModalComponent {
   private http = inject(HttpClient);
 
-  // Reactive signal for the user data
   user = signal<any | null>(null);
 
-  // Function to set the user data
   setUser(userData: any) {
     this.user.set(userData);
   }
 
-  // Function to close the modal and emit the close event
   closeModal() {
     this.user.set(null);
   }
 
-  // Sends updated user info to the mock server
   updateUser() {
     if (!this.user()) return;
 

@@ -7,19 +7,23 @@
                 <tr class="text-gray-700 text-sm md:text-base">
                     <th class="px-4 py-3 text-left border-b">ID</th>
                     <th class="px-4 py-3 text-left border-b">Username</th>
+                    <th class="px-4 py-3 text-left border-b">Password</th>
                     <th class="px-4 py-3 text-left border-b">Name</th>
                     <th class="px-4 py-3 text-left border-b hidden md:table-cell">Surname</th>
+                    <th class="px-4 py-3 text-left border-b hidden md:table-cell">Email</th>
                     <th class="px-4 py-3 text-left border-b hidden lg:table-cell">Registration Date</th>
                     <th class="px-4 py-3 text-left border-b">Status</th>
                 </tr>
             </thead>
             <tbody>
                 @for (user of users(); track user.id) {
-                <tr class="border-b hover:bg-blue-50 transition duration-200" (click)="openModal(user)">
+                <tr class="border-b hover:bg-blue-50 transition duration-200 cursor-pointer" (click)="openModal(user)">
                     <td class="px-4 py-3">{{ user.id }}</td>
                     <td class="px-4 py-3 font-medium text-blue-600">{{ user.username }}</td>
+                    <td class="px-4 py-3">{{ user.password }}</td>
                     <td class="px-4 py-3">{{ user.name }}</td>
                     <td class="px-4 py-3 hidden md:table-cell">{{ user.surname }}</td>
+                    <td class="px-4 py-3 hidden md:table-cell">{{ user.email }}</td>
                     <td class="px-4 py-3 hidden lg:table-cell">{{ user.registrationDate | date:'yyyy-MM-dd' }}</td>
                     <td class="px-4 py-3">
                         <span class="px-3 py-1 rounded-lg text-xs font-semibold" [class.bg-green-100]="user.isActive"
