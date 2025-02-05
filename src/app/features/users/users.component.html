@@ -5,18 +5,30 @@
         <table class="w-full border-collapse bg-white rounded-xl">
             <thead class="bg-gradient-to-r from-blue-100 to-green-100">
                 <tr class="text-gray-700 text-sm md:text-base">
-                    <th class="px-4 py-3 text-left border-b">ID</th>
-                    <th class="px-4 py-3 text-left border-b">Username</th>
-                    <th class="px-4 py-3 text-left border-b">Password</th>
-                    <th class="px-4 py-3 text-left border-b">Name</th>
-                    <th class="px-4 py-3 text-left border-b hidden md:table-cell">Surname</th>
-                    <th class="px-4 py-3 text-left border-b hidden md:table-cell">Email</th>
-                    <th class="px-4 py-3 text-left border-b hidden lg:table-cell">Registration Date</th>
-                    <th class="px-4 py-3 text-left border-b">Status</th>
+                    <th class="px-4 py-3 text-left border-b cursor-pointer" (click)="sortData('id')">
+                        ID <fa-icon [icon]="sortSign('id')"></fa-icon>
+                    </th>
+                    <th class="px-4 py-3 text-left border-b" (click)="sortData('username')">Username <fa-icon
+                            [icon]="sortSign('username')"></fa-icon></th>
+                    <th class="px-4 py-3 text-left border-b" (click)="sortData('password')">Password <fa-icon
+                            [icon]="sortSign('password')"></fa-icon></th>
+                    <th class="px-4 py-3 text-left border-b" (click)="sortData('name')">Name <fa-icon
+                            [icon]="sortSign('name')"></fa-icon></th>
+                    <th class="px-4 py-3 text-left border-b hidden md:table-cell" (click)="sortData('surname')">
+                        Surname <fa-icon [icon]="sortSign('surname')"></fa-icon>
+                    </th>
+                    <th class="px-4 py-3 text-left border-b hidden md:table-cell" (click)="sortData('email')">
+                        Email <fa-icon [icon]="sortSign('email')"></fa-icon></th>
+                    <th class="px-4 py-3 text-left border-b hidden lg:table-cell"
+                        (click)="sortData('registrationDate')">Registration Date <fa-icon
+                            [icon]="sortSign('registrationDate')"></fa-icon>
+                    </th>
+                    <th class="px-4 py-3 text-left border-b" (click)="sortData('isActive')">Status <fa-icon
+                            [icon]="sortSign('isActive')"></fa-icon></th>
                 </tr>
             </thead>
             <tbody>
-                @for (user of users(); track user.id) {
+                @for (user of sortedUsers(); track user.id) {
                 <tr class="border-b hover:bg-blue-50 transition duration-200 cursor-pointer" (click)="openModal(user)">
                     <td class="px-4 py-3">{{ user.id }}</td>
                     <td class="px-4 py-3 font-medium text-blue-600">{{ user.username }}</td>
