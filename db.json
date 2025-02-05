@@ -1,17 +1,17 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "username": "George1",
       "password": "George123",
-      "name": "George",
-      "surname": "SKrimpas",
+      "name": "sss",
+      "surname": "SKrimssspas",
       "registrationDate": "2025-01-25",
       "isActive": false,
       "token": "mock-jwt-token"
     },
     {
-      "id": 2,
+      "id": "2",
       "username": "Irinella1",
       "password": "Irinella123",
       "name": "Irinella",
@@ -19,6 +19,79 @@
       "registrationDate": "2025-01-26",
       "isActive": false,
       "token": "mock-jwt-token"
+    },
+
+    {
+      "id": 3,
+      "username": "familiarrock",
+      "first_name": "Aaron",
+      "last_name": "Lee",
+      "email": "alee@outlook.com",
+      "d/m/yyyy": "7/3/2013",
+      "isActive": false
+    },
+    {
+      "id": 4,
+      "username": "briefposition",
+      "first_name": "Tyler",
+      "last_name": "Parker",
+      "email": "tyler_f_parker@rocketmail.com",
+      "d/m/yyyy": "5/12/2022",
+      "isActive": false
+    },
+    {
+      "id": 5,
+      "username": "nimbletin",
+      "first_name": "Amelia",
+      "last_name": "Flores",
+      "email": "a_f_flores63@yahoo.com",
+      "d/m/yyyy": "11/8/2013",
+      "isActive": false
+    },
+    {
+      "id": 6,
+      "username": "efficientcherry",
+      "first_name": "Erin",
+      "last_name": "Moore",
+      "email": "e.r.moore@ymail.com",
+      "d/m/yyyy": "22/12/2022",
+      "isActive": false
+    },
+    {
+      "id": 7,
+      "username": "distinctmailbox",
+      "first_name": "Amber",
+      "last_name": "Henderson",
+      "email": "a.e.henderson@live.com",
+      "d/m/yyyy": "22/7/2021",
+      "isActive": false
+    },
+    {
+      "id": 8,
+      "username": "equablewave",
+      "first_name": "Thomas",
+      "last_name": "Scott",
+      "email": "t.scott51@yahoo.com",
+      "d/m/yyyy": "26/7/2015",
+      "isActive": false
+    },
+    {
+      "id": 9,
+      "username": "zestychicken",
+      "first_name": "Austin",
+      "last_name": "Rivera",
+      "email": "austinandrewrivera@rocketmail.com",
+      "d/m/yyyy": "26/5/2018",
+      "isActive": false
+    },
+    {
+      "id": 10,
+      "username": "kindheartedfeeling",
+      "first_name": "Jessica",
+      "last_name": "Thompson",
+      "email": "jessica.thompson@aol.com",
+      "d/m/yyyy": "27/6/2013",
+      "isActive": false
     }
   ]
 }
