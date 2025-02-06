@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, inject, signal, OnInit } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserModalComponent } from '../../shared/components/user-modal/user-modal.component';
 import { UserInterface } from '../../core/interfaces/user.interface';
@@ -72,8 +72,10 @@ export class UsersComponent {
   }
 
   openModal(user: UserInterface) {
-    // Set the selected user
-    this.selectedUser.set(user);
+    this.selectedUser.set(null); // Reset first to trigger change detection
+    setTimeout(() => {
+      this.selectedUser.set(user);
+    }, 0);
   }
 
   closeModal() {

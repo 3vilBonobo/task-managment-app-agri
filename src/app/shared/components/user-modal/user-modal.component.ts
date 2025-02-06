@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -12,14 +12,16 @@ import { FormsModule } from '@angular/forms';
 export class UserModalComponent {
   private http = inject(HttpClient);
 
-  user = signal<any | null>(null);
+  user = input<any | null>(null); // Read-only input
 
-  setUser(userData: any) {
-    this.user.set(userData);
+  close = output<void>(); // Output event using output()
+
+  ngOnChanges() {
+    console.log('User set in modal:', this.user());
   }
 
   closeModal() {
-    this.user.set(null);
+    this.close.emit(); // Emit the close event
   }
 
   updateUser() {
@@ -30,7 +32,7 @@ export class UserModalComponent {
       .subscribe({
         next: () => {
           alert('User info updated successfully!');
-          this.closeModal();
+          this.closeModal(); // Close modal after updating
         },
         error: (err) => console.error('Error updating user:', err),
       });

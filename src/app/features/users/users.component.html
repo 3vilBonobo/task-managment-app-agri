@@ -57,6 +57,8 @@
 
     <!-- User Modal -->
     @if (selectedUser()) {
-    <app-user-modal></app-user-modal>
+    <app-user-modal [user]="selectedUser()" (close)="closeModal()"></app-user-modal>
     }
+
+
 </div>
