@@ -54,7 +54,15 @@ export class UsersComponent {
     const newOrder = currentOrder === 'asc' ? 'desc' : 'asc';
     this.sortOrder[sortKey] = newOrder;
 
-    const sorted = sortBy(this.users(), [sortKey]);
+    const sorted = sortBy(this.users(), [
+      (user) => {
+        // Check if the key corresponds to the 'id' field and sort as numbers
+        if (sortKey === 'id') {
+          return Number(user[sortKey]);
+        }
+        return user[sortKey];
+      },
+    ]);
 
     if (newOrder === 'desc') {
       this.sortedUsers.set(sorted.reverse());
