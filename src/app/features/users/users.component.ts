@@ -49,11 +49,21 @@ export class UsersComponent {
 
   // Sort user table
   sortData(sortKey: keyof Sorting): void {
-    // Toggle sorting order
+    // Reset other columns to 'none' and set the selected column to 'asc' or 'desc'
+    for (const key in this.sortOrder) {
+      if (Object.prototype.hasOwnProperty.call(this.sortOrder, key)) {
+        // Type assertion to ensure key is keyof Sorting
+        if (key !== sortKey) {
+          this.sortOrder[key as keyof Sorting] = 'none'; // Reset other columns to 'none'
+        }
+      }
+    }
+
     const currentOrder = this.sortOrder[sortKey];
-    const newOrder = currentOrder === 'asc' ? 'desc' : 'asc';
+    const newOrder = currentOrder === 'asc' ? 'desc' : 'asc'; // Toggle between ascending and descending
     this.sortOrder[sortKey] = newOrder;
 
+    // Sort the data based on the selected column
     const sorted = sortBy(this.users(), [
       (user) => {
         // Check if the key corresponds to the 'id' field and sort as numbers
@@ -64,6 +74,7 @@ export class UsersComponent {
       },
     ]);
 
+    // If descending, reverse the sorted array
     if (newOrder === 'desc') {
       this.sortedUsers.set(sorted.reverse());
     } else {
@@ -72,10 +83,13 @@ export class UsersComponent {
   }
 
   sortSign(sortKey: keyof Sorting): IconDefinition {
+    // Return the appropriate icon based on the sort state of the column
     if (this.sortOrder[sortKey] === 'asc') {
-      return faSortUp; // Up arrow
+      return faSortUp;
+    } else if (this.sortOrder[sortKey] === 'desc') {
+      return faSortDown;
     } else {
-      return faSortDown; // Down arrow
+      return faSort;
     }
   }
 
