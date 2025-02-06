@@ -37,7 +37,7 @@
       "id": "4",
       "username": "briefposition",
       "password": "pass123",
-      "name": "Alex",
+      "name": "Tyler",
       "surname": "Parker",
       "email": "tyler_f_parker@rocketmail.com",
       "registrationDate": "2025-01-25",
@@ -51,7 +51,7 @@
       "name": "Amelia",
       "surname": "Flores",
       "email": "a_f_flores63@yahoo.com",
-      "registrationDate": "2025-01-25",
+      "registrationDate": "2025-01-19",
       "isActive": false,
       "token": "mock-jwt-token"
     },
@@ -106,7 +106,7 @@
       "name": "Jessica",
       "surname": "Thompson",
       "email": "jessica.thompson@aol.com",
-      "registrationDate": "2025-01-25",
+      "registrationDate": "2025-01-24",
       "isActive": false,
       "token": "mock-jwt-token"
     }

@@ -14,17 +14,18 @@
 
             <div>
                 <label class="block text-sm font-medium text-gray-600">Name</label>
-                <input type="text" class="w-full p-2 border rounded" [(ngModel)]="user().name" />
+                <input type="text" class="w-full p-2 border rounded cursor-text" [(ngModel)]="user().name" />
             </div>
 
             <div>
                 <label class="block text-sm font-medium text-gray-600">Surname</label>
-                <input type="text" class="w-full p-2 border rounded" [(ngModel)]="user().surname" />
+                <input type="text" class="w-full p-2 border rounded cursor-text" [(ngModel)]="user().surname" />
             </div>
 
             <div>
                 <label class="block text-sm font-medium text-gray-600">Registration Date</label>
-                <input type="date" class="w-full p-2 border rounded" [(ngModel)]="user().registrationDate" />
+                <input type="date" class="w-full p-2 border rounded cursor-text"
+                    [(ngModel)]="user().registrationDate" />
             </div>
 
         </div>
