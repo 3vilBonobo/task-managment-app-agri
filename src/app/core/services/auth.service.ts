@@ -1,9 +1,17 @@
 import { Injectable, signal } from '@angular/core';
-import { UserInterface } from '../interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  currentUserSig = signal<UserInterface | undefined | null>(undefined);
+  private tokenSig = signal<string | null>(null);
+
+  setToken(token: string) {
+    this.tokenSig.set(token);
+    localStorage.setItem('token', token);
+  }
+
+  getToken(): string | null {
+    return this.tokenSig() || localStorage.getItem('token');
+  }
 }

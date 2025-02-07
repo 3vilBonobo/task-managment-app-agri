@@ -1,6 +1,6 @@
 import { Route } from '@angular/router';
+import { AuthGuard } from './core/guards/auth.guard';
 
-//Routes using lazy-loading functionality with import()
 export const routes: Route[] = [
   {
     path: 'login',
@@ -17,17 +17,19 @@ export const routes: Route[] = [
       import('../app/features/dashboard/dashboard.component').then(
         (m) => m.DashboardComponent
       ),
+    canActivate: [AuthGuard],
     children: [
       {
-        path: 'dashboard/users',
+        path: 'users',
         title: 'Users',
         loadComponent: () =>
           import('../app/features/users/users.component').then(
             (m) => m.UsersComponent
           ),
+        canActivate: [AuthGuard],
       },
     ],
   },
 
-  { path: '**', redirectTo: '/login' }, //Create a 404 page in the future??
+  { path: '**', redirectTo: '/login' }, // Redirect unknown routes to login
 ];
